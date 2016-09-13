@@ -55,7 +55,7 @@ To make things easier we go to the makedir first::
 
    (venv)user@srv123:~$  cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
 
-Now run the process. We specify '.' (for current dir)
+Now run the process. We specify `.` (for current dir)
 for option `makedir`::
 
    (venv)user@srv123:~$  tct run RenderDocumentation \
@@ -76,12 +76,14 @@ situation::
    2016-09-13 20:44:10 613324 duration: 3.43 seconds
 
 The reason for this is that the documentation is unchanged. The toolchain leaves a
-checksum file in the :file:`makedir` folder. Since the checksum is the same the
+checksum file :file:`makedir/build.checksum` in the :file:`makedir` folder.
+Since the checksum is the same the
 toolchain concludes that another rendering is not necessary. If the checksum is very
-old like two weeks or so it still renders the documentation to give it an "up to date look".
+old like two weeks or so (a fixed setting in the toolchain) the documentation is nevertheless re-rendered
+to give it an "up to date look".
 You can tell the toolchain to ignore the result of the checksum check. To do that
-set `rebuild_needed` to `1`. By default the value is `0`. Use `0` or `1`, since an
-integer is expected::
+set `rebuild_needed` to `1`. By default the value is `0`. An integer is expected,
+so use `0` or `1`::
 
    (venv)user@srv123:~$  tct run RenderDocumentation \
       -c makedir . \
