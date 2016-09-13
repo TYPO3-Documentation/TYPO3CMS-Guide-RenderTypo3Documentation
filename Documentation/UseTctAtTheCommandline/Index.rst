@@ -6,12 +6,12 @@
 Use TCT at the commandline
 =====================================
 
+
 Rendered: |today|
 
 
-
 ----------------------------------------------------------
-Use
+Using TCT and RenderDocumentation
 ----------------------------------------------------------
 
 Run a render job
@@ -170,8 +170,8 @@ Add a `--dry-run`, alternatively `-n`, to not really remove but to get some info
       --clean-but 0  --dry-run
 
 
-Prepare for a rendering job
-===========================
+Prepare a rendering job
+=======================
 
 Provide the project
 -------------------
@@ -187,8 +187,8 @@ Provide the project
    git pull
 
 
-Have a :file:`makedir` folder
------------------------------
+Provide a 'makedir' folder
+--------------------------
 
 The `RenderDocumentation` toolchain expects you to set up a :file:`makedir` folder. Example::
 
@@ -209,9 +209,8 @@ The `RenderDocumentation` toolchain expects you to set up a :file:`makedir` fold
    touch buildsettings.sh
 
 
-
-Edit :file:`makedir/buildsettings.sh`
--------------------------------------
+Edit file 'makedir/buildsettings.sh'
+------------------------------------
 
 The file is sourced by bash.
 
@@ -303,7 +302,7 @@ TCT is the Toolchain Tool. The actual name on the commandline is `tct`.
 `RenderDocumentation` is a toolchain that is run by TCT.
 
 
-Login to the server.
+Go to the commandline.
 
 Run TCT::
 
