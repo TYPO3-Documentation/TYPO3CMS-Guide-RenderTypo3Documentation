@@ -84,19 +84,19 @@ What are the global settings?
    (venv)user@srv123:~$ tct config list
 
       [general]
-      toolchains_home = /home/user/Toolchains
       temp_home = /tmp/TCT
+      toolchains_home = /home/user/Toolchains
 
       [RenderDocumentation]
       email_admin = martin.bless@gmail.com
-      webroot_abspath = /home/user/public_html
-      latex_contrib_typo3_folder = /home/user/HTDOCS/github.com/TYPO3-Documentation/latex.typo3
-      htaccess_template_show_latest = /home/user/scripts/config/_htaccess
       email_user_receivers_exlude_list = documentation@typo3.org,kasperYYYY@typo3.org,kasperYYYY@typo3.com,info@typo3.org,francois@typo3.org
-      url_of_webroot = https://docs.typo3.org
       email_user_send_extra_mail_to_admin = 1
-      webroot_part_of_builddir = /home/user/public_html
+      htaccess_template_show_latest = /home/user/scripts/config/_htaccess
+      latex_contrib_typo3_folder = /home/user/HTDOCS/github.com/TYPO3-Documentation/latex.typo3
       lockfile_name = lockfile.json
+      url_of_webroot = https://docs.typo3.org
+      webroot_abspath = /home/user/public_html
+      webroot_part_of_builddir = /home/user/public_html
 
 
 
@@ -115,26 +115,7 @@ inspection. N is a configurable value. Find out what recently happened::
    drwxr-xr-x 19 user user 4096 Sep 13 11:58 2016-09-13_11-58-41_141289
    drwxr-xr-x 19 user user 4096 Sep 13 11:58 2016-09-13_11-58-44_990298
    drwxr-xr-x 19 user user 4096 Sep 13 11:58 2016-09-13_11-58-49_437418
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-58-54_140979
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-13_729523
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-17_223291
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-21_269917
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-24_921175
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-28_874855
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-32_599972
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-36_013213
-   drwxr-xr-x 19 user user 4096 Sep 13 11:59 2016-09-13_11-59-39_580416
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-02_547883
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-23_045668
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-26_947207
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-32_560999
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-36_496683
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-40_493718
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-44_580121
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-48_693320
-   drwxr-xr-x 19 user user 4096 Sep 13 12:05 2016-09-13_12-05-52_604264
-   drwxr-xr-x 19 user user 4096 Sep 13 12:06 2016-09-13_12-05-56_644457
-   drwxr-xr-x 19 user user 4096 Sep 13 12:06 2016-09-13_12-06-00_682575
+   [... 20 more lines ...]
    drwxr-xr-x 19 user user 4096 Sep 13 12:06 2016-09-13_12-06-04_457984
    drwxr-xr-x 19 user user 4096 Sep 13 12:06 2016-09-13_12-06-08_198774
    drwxr-xr-x 19 user user 4096 Sep 13 12:06 2016-09-13_12-06-12_243568
@@ -312,6 +293,123 @@ The file is read as ini file too.
    # set value 'fr_FR':
    # LOCALIZATION=fr_FR
 
+
+Run A Render Job
+================
+
+Wherever you are - activate the environment first::
+
+   user@srv123:~$  source ~/venvs/tct/venv/bin/activate
+   (venv)mbless@srv123:~$
+
+Check that TCT is running::
+
+   (venv)mbless@srv123:~$  tct --help
+   (venv)mbless@srv123:~$  tct run --help
+
+Let's run a job::
+
+   (venv)mbless@srv123:~$  tct run
+   Usage: tct run [OPTIONS] TOOLCHAIN
+
+   Error: Missing argument "toolchain".
+
+So the argument "toolchain" is missing. What toolchains do we have? ::
+
+   (venv)mbless@srv123:~$  tct list
+   RenderDocumentation
+
+Ok, we have a toolchain `RenderDocumentation`. So let's run it::
+
+   (venv)mbless@srv123:~$ tct run RenderDocumentation
+   # -------- RenderDocumentation 2016-09-13 20:29:18 933141
+   Usage: tct run RenderDocumentation --config makedir MAKEDIR [--toolchain-help]
+   Produced: nothing
+   2016-09-13 20:29:19 733904 duration: 0.80 seconds
+
+Ah, ok, the next hurdle. The toolchain `RenderDocumentation` is asking for a
+parameter itself. It requires a value for the parameter `makedir`. We pass that
+parameter to TCT with the commandline option `--config makedir MAKEDIR`. With
+`--config`, alternatively `-c` we can pass key value pairs to the toolchain.
+To make things easier we go to the makedir first::
+
+   (venv)mbless@srv123:~$  cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
+
+Now run the process. We specify '.' (for current dir)
+for option `makedir`::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir .
+
+   # process should run - you should see messages passing by
+
+If you just run the process a second time you'll probably get a 'Produced: nothing'
+situation::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir .
+
+   # -------- RenderDocumentation 2016-09-13 20:44:07 181093
+   RenderTypo3Documentation.git.make
+   rebuild_needed: no, age: 20830 seconds
+   Produced: nothing
+   2016-09-13 20:44:10 613324 duration: 3.43 seconds
+
+The reason for this is that the documentation is unchanged. The toolchain leaves a
+checksum file in the :file:`makedir` folder. Since the checksum is the same the
+toolchain concludes that another rendering is not necessary. If the checksum is very
+old like two weeks or so it still renders the documentation to give it an "up to date look".
+You can tell the toolchain to ignore the result of the checksum check. To do that
+set `rebuild_needed` to `1`. By default the value is `0`. Use `0` or `1`, since an
+integer is expected::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1
+
+We do another run. The toolchain tries to find email addresses of the project owner
+and tries to send an email with a report in the end "to this user". So internally
+this mail is called `email_user`. You can tell the toolchain to send the mail to
+some other address, for example your address or addresses instead of to the - suspected -
+project owners::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      -c email_user_to martin@mbless.de,martin.bless@typo3.org
+
+If you're in doubt, let the toolchain itself show help about what options it understands.
+With the option `--toolchain-help` the toolchain shows help and then terminates::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --toolchain-help
+
+If you think a previous run has failed to remove the lockfile
+:file:`/tmp/TCT/RenderDocumentation/lockfile.json` you can use `-T unlock`
+to remove that lockfile. Attention: Don't do this when a cronjob is running
+for example::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      -T unlock
+
+To remove all temporary data of previous builds use `--clean-but 5`
+to keep the recent five or `--clean-but 0` to remove all::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --clean-but 0
+
+Add a `--dry-run`, alternatively `-n`, to not really remove but to get some information::
+
+   (venv)mbless@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --clean-but 0  --dry-run
 
 
 
