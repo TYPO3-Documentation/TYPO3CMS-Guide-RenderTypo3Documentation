@@ -153,7 +153,8 @@ for example::
       -c rebuild_needed 1 \
       -T unlock
 
-To remove all temporary data of previous builds use `--clean-but 5`
+To remove all temporary data of previous builds use `--clean-but 5`,
+for example,
 to keep the recent five or `--clean-but 0` to remove all::
 
    (venv)user@srv123:~$  tct run RenderDocumentation \
@@ -189,7 +190,7 @@ Provide the project
 Have a :file:`makedir` folder
 -----------------------------
 
-The `RenderDocumentation` toolchain expects you to set up a file:`makedir` folder. Example::
+The `RenderDocumentation` toolchain expects you to set up a :file:`makedir` folder. Example::
 
    # go home
    (venv)user@srv123:~$ cd
@@ -210,7 +211,7 @@ The `RenderDocumentation` toolchain expects you to set up a file:`makedir` folde
 
 
 Edit :file:`makedir/buildsettings.sh`
---------------------—----------------
+-------------------------------------
 
 The file is sourced by bash.
 
@@ -238,17 +239,17 @@ The file is read as ini file too.
    VERSION=latest
 
    # Where to publish documentation
-   # The webroot folder is: /home/user/public_html
+   # The webroot folder is: /home/user/public_html ≙ https://docs.typo3.org
    BUILDDIR=/home/user/public_html/typo3cms/RenderTYPO3DocumentationGuide/latest
 
-   # The folder with the project source
+   # The folder with the project source ≙ base folder of the repository, if it is one
    GITDIR=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git
 
    # If GITURL is empty then GITDIR is published unmodified, that is, "as it is"
    # GITURL=
 
    # If GITURL is given then a `git checkout $GITBRANCH; git pull $GITURL --force`
-   # will be done first
+   # will be done first. So the repository is updated first.
    GITURL=https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript.git
    GITBRANCH=latest
 
@@ -279,6 +280,8 @@ The file is read as ini file too.
    # Otherwise, for example: If there is a PROJECT/Documentation/Localization.fr_FR/ section
    # set value 'fr_FR':
    # LOCALIZATION=fr_FR
+
+   # The end.
 
 
 
