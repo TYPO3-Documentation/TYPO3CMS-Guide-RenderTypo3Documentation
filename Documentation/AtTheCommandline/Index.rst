@@ -108,6 +108,41 @@ With the option `--toolchain-help` the toolchain shows help and then terminates:
       -c rebuild_needed 1 \
       --toolchain-help
 
+   # result is something like:
+
+   # -------- RenderDocumentation 2016-09-13 22:12:57 605810
+   Usage: tct run [OPTIONS] RenderDocumentation
+
+     Run the toolchain 'RenderDocumentation'.
+
+   Options:
+     -c, --config KEY VALUE         Define or override config key-value pair
+                                    (repeatable)
+     -n, --dry-run                  Perform a trial run with no changes made.
+     --toolchain-help               Tell the toolchain to display its help text.
+                                    The toolchain should do that and then exit.
+     -T, --toolchain-action ACTION  Tell the toolchain to execute the action.
+                                    (repeatable)
+     --help                         Show this message and exit.
+
+   Toolchain options:
+     -T clean                       Let the toolchain delete prior builds, then exit.
+     -T help                        Let the toolchain show this help, then exit.
+     -T unlock                      Let the toolchain remove existing locks, then exit
+
+     -c makedir PATH/TO/MAKEDIR     Required! The path to the 'make' folder.
+     -c rebuild_needed 1            Force rebuild regardless of checksum
+
+     -c talk 0                      run quietly
+     -c talk 1                      talk just the minimum (default)
+     -c talk 2                      talk more
+
+     -c email_user_to  "email1,email2,..."  instead of real user
+     -c email_user_cc  "email1,email2,..."  additionally, publicly
+     -c email_user_bcc "email1,email2,..."  additionally, secretly
+     -c email_user_send_to_admin_too  1     like it says
+
+
 If you think a previous run has failed to remove the lockfile
 :file:`/tmp/TCT/RenderDocumentation/lockfile.json` you can use `-T unlock`
 to remove that lockfile. Attention: Don't do this when a cronjob is running
