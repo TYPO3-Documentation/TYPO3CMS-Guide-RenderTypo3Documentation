@@ -3,8 +3,257 @@
 .. highlight:: shell
 
 =====================================
-At The Commandline
+At the commandline
 =====================================
+
+Rendered: |today|
+
+
+
+----------------------------------------------------------
+Use
+----------------------------------------------------------
+
+Run a render job
+================
+
+Wherever you are - activate the environment first::
+
+   user@srv123:~$  source ~/venvs/tct/venv/bin/activate
+   (venv)user@srv123:~$
+
+Check that TCT is running::
+
+   (venv)user@srv123:~$  tct --help
+   (venv)user@srv123:~$  tct run --help
+
+Let's run a job::
+
+   (venv)user@srv123:~$  tct run
+   Usage: tct run [OPTIONS] TOOLCHAIN
+
+   Error: Missing argument "toolchain".
+
+So the argument "toolchain" is missing. What toolchains do we have? ::
+
+   (venv)user@srv123:~$  tct list
+   RenderDocumentation
+
+Ok, we have a toolchain `RenderDocumentation`. So let's run it::
+
+   (venv)user@srv123:~$ tct run RenderDocumentation
+   # -------- RenderDocumentation 2016-09-13 20:29:18 933141
+   Usage: tct run RenderDocumentation --config makedir MAKEDIR [--toolchain-help]
+   Produced: nothing
+   2016-09-13 20:29:19 733904 duration: 0.80 seconds
+
+Ah, ok, the next hurdle. The toolchain `RenderDocumentation` is asking for a
+parameter itself. It requires a value for the parameter `makedir`. We pass that
+parameter to TCT with the commandline option `--config makedir MAKEDIR`. With
+`--config`, alternatively `-c` we can pass key value pairs to the toolchain.
+To make things easier we go to the makedir first::
+
+   (venv)user@srv123:~$  cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
+
+Now run the process. We specify '.' (for current dir)
+for option `makedir`::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir .
+
+   # process should run - you should see messages passing by
+
+If you just run the process a second time you'll probably get a 'Produced: nothing'
+situation::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir .
+
+   # -------- RenderDocumentation 2016-09-13 20:44:07 181093
+   RenderTypo3Documentation.git.make
+   rebuild_needed: no, age: 20830 seconds
+   Produced: nothing
+   2016-09-13 20:44:10 613324 duration: 3.43 seconds
+
+The reason for this is that the documentation is unchanged. The toolchain leaves a
+checksum file in the :file:`makedir` folder. Since the checksum is the same the
+toolchain concludes that another rendering is not necessary. If the checksum is very
+old like two weeks or so it still renders the documentation to give it an "up to date look".
+You can tell the toolchain to ignore the result of the checksum check. To do that
+set `rebuild_needed` to `1`. By default the value is `0`. Use `0` or `1`, since an
+integer is expected::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1
+
+We do another run. The toolchain tries to find email addresses of the project owner
+and tries to send an email with a report in the end "to this user". So internally
+this mail is called `email_user`. You can tell the toolchain to send the mail to
+some other address, for example your address or addresses instead of to the - suspected -
+project owners::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      -c email_user_to martin@user.de,martin.bless@typo3.org
+
+If you're in doubt, let the toolchain itself show help about what options it understands.
+With the option `--toolchain-help` the toolchain shows help and then terminates::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --toolchain-help
+
+If you think a previous run has failed to remove the lockfile
+:file:`/tmp/TCT/RenderDocumentation/lockfile.json` you can use `-T unlock`
+to remove that lockfile. Attention: Don't do this when a cronjob is running
+for example::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      -T unlock
+
+To remove all temporary data of previous builds use `--clean-but 5`
+to keep the recent five or `--clean-but 0` to remove all::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --clean-but 0
+
+Add a `--dry-run`, alternatively `-n`, to not really remove but to get some information::
+
+   (venv)user@srv123:~$  tct run RenderDocumentation \
+      -c makedir . \
+      -c rebuild_needed 1 \
+      --clean-but 0  --dry-run
+
+
+Prepare for a rendering job
+===========================
+
+Provide the project
+-------------------
+
+::
+
+   git clone \
+      https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation.git \
+      ~/TYPO3CMS-Guide-RenderTypo3Documentation.git
+
+   cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git
+   git checkout latest
+   git pull
+
+
+Have a :file:`makedir` folder
+-----------------------------
+
+The `RenderDocumentation` toolchain expects you to set up a file:`makedir` folder. Example::
+
+   # go home
+   (venv)user@srv123:~$ cd
+
+   # create makedir
+   (venv)user@srv123:~$ mkdir ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
+
+   # go there
+   (venv)user@srv123:~$ cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
+
+   # symlink the conf.py into that folder
+   (venv)user@srv123:~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make$ \
+      ln -s /home/user/scripts/bin/conf-2015-10.py conf.py
+
+   # create a buildsettings file.
+   touch buildsettings.sh
+
+
+
+Edit :file:`makedir/buildsettings.sh`
+--------------------—----------------
+
+The file is sourced by bash.
+
+The file is read as ini file too.
+
+.. code-block:: cfg
+
+   # This is a real life example of 'buildsettings.sh'
+
+   # Tip: Prefer absolute paths! It's less error prone.
+
+   # absolute path to the master_doc, without suffix (.rst or .md)
+   # or relative path from conf.py's folder to master_doc
+   MASTERDOC=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git/Documentation/Index
+
+   # Absolute path or relative path from conf.py's folder
+   # Not required on the server.
+   # toolchain RenderDocumentation does not care about this value
+   LOGDIR=.
+
+   # The name of the project. Appears top left on pages. Gets overriden by Settings.cfg
+   PROJECT=RenderTYPO3DocumentationGuide
+
+   # The version of th project. Appears top left on pages. Gets overriden by Settings.cfg
+   VERSION=latest
+
+   # Where to publish documentation
+   # The webroot folder is: /home/user/public_html
+   BUILDDIR=/home/user/public_html/typo3cms/RenderTYPO3DocumentationGuide/latest
+
+   # The folder with the project source
+   GITDIR=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git
+
+   # If GITURL is empty then GITDIR is published unmodified, that is, "as it is"
+   # GITURL=
+
+   # If GITURL is given then a `git checkout $GITBRANCH; git pull $GITURL --force`
+   # will be done first
+   GITURL=https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript.git
+   GITBRANCH=latest
+
+   # Path to the documentation within the Git repository
+   T3DOCDIR=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git/Documentation/Index
+
+   # Packaging information
+
+   # Set to 0 or 1. If set, a zip archive will be produced.
+   PACKAGE_ZIP=1
+
+   # Name of the zip file
+   PACKAGE_KEY=typo3cms.manual.RenderT3Docs
+
+   # Use 'default' for English
+   PACKAGE_LANGUAGE=default
+
+   # Is this a TER extension? Set to 0 or 1
+   # If set, the folder with the highest version number like '1.2.3' will automatically
+   # be treated a 'stable', which is what gets shown when the url of the project is given
+   # without version number.
+   # If set to 0, the symlink 'stable' needs to be manually created.
+   TER_EXTENSION=0
+
+   # If empty, the default language of the manual is rendered.
+   LOCALIZATION=
+
+   # Otherwise, for example: If there is a PROJECT/Documentation/Localization.fr_FR/ section
+   # set value 'fr_FR':
+   # LOCALIZATION=fr_FR
+
+
+
+
+.. write about:
+   (venv)user@srv123:~/HTDOCS/github.com/TYPO3-Documentation/TYPO3/Guide/RenderTypo3Documentation.git.make$ ln -s /home/user/scripts/bin/cron_rebuild-RenderDocumentation.sh cron_rebuild.sh
+   (venv)user@srv123:~/HTDOCS/github.com/TYPO3-Documentation/TYPO3/Guide/RenderTypo3Documentation.git.make$
+
+
+----------
+Understand
+----------
 
 TCT is the Toolchain Tool. The actual name on the commandline is `tct`.
 
@@ -178,240 +427,3 @@ If a job fails and doesn't remove the lockfile you can enforce removal from the 
    (venv)user@srv123:~/scripts/bin$ tct run RenderDocumentation -T unlock
    # -------- RenderDocumentation 2016-09-13 13:02:04 159229
 
-
-
-Prepare a render job
-====================
-
-
-Provide the project
--------------------
-
-::
-
-   git clone \
-      https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation.git \
-      ~/TYPO3CMS-Guide-RenderTypo3Documentation.git
-
-   cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git
-   git checkout latest
-   git pull
-
-
-Create :file:`makedir` folder
------------------------------
-
-The `RenderDocumentation` toolchain expects you to set up a file:`makedir` folder. Example::
-
-   # go home
-   (venv)user@srv123:~$ cd
-
-   # create makedir
-   (venv)user@srv123:~$ mkdir ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
-
-   # go there
-   (venv)user@srv123:~$ cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
-
-   # symlink the conf.py into that folder
-   (venv)user@srv123:~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make$ \
-      ln -s /home/user/scripts/bin/conf-2015-10.py conf.py
-
-   # create a buildsettings file.
-   touch buildsettings.sh
-
-
-
-Edit :file:`buildsettings.sh`
------------------------------
-
-The file is sourced by bash.
-
-The file is read as ini file too.
-
-.. code-block:: cfg
-
-   # This is a real life example of 'buildsettings.sh'
-
-   # Tip: Prefer absolute paths! It's less error prone.
-
-   # absolute path to the master_doc, without suffix (.rst or .md)
-   # or relative path from conf.py's folder to master_doc
-   MASTERDOC=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git/Documentation/Index
-
-   # Absolute path or relative path from conf.py's folder
-   # Not required on the server.
-   # toolchain RenderDocumentation does not care about this value
-   LOGDIR=.
-
-   # The name of the project. Appears top left on pages. Gets overriden by Settings.cfg
-   PROJECT=RenderTYPO3DocumentationGuide
-
-   # The version of th project. Appears top left on pages. Gets overriden by Settings.cfg
-   VERSION=latest
-
-   # Where to publish documentation
-   # The webroot folder is: /home/user/public_html
-   BUILDDIR=/home/user/public_html/typo3cms/RenderTYPO3DocumentationGuide/latest
-
-   # The folder with the project source
-   GITDIR=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git
-
-   # If GITURL is empty then GITDIR is published unmodified, that is, "as it is"
-   # GITURL=
-
-   # If GITURL is given then a `git checkout $GITBRANCH; git pull $GITURL --force`
-   # will be done first
-   GITURL=https://github.com/TYPO3-Documentation/TYPO3CMS-Reference-Typoscript.git
-   GITBRANCH=latest
-
-   # Path to the documentation within the Git repository
-   T3DOCDIR=/home/user/TYPO3CMS-Guide-RenderTypo3Documentation.git/Documentation/Index
-
-   # Packaging information
-
-   # Set to 0 or 1. If set, a zip archive will be produced.
-   PACKAGE_ZIP=1
-
-   # Name of the zip file
-   PACKAGE_KEY=typo3cms.manual.RenderT3Docs
-
-   # Use 'default' for English
-   PACKAGE_LANGUAGE=default
-
-   # Is this a TER extension? Set to 0 or 1
-   # If set, the folder with the highest version number like '1.2.3' will automatically
-   # be treated a 'stable', which is what gets shown when the url of the project is given
-   # without version number.
-   # If set to 0, the symlink 'stable' needs to be manually created.
-   TER_EXTENSION=0
-
-   # If empty, the default language of the manual is rendered.
-   LOCALIZATION=
-
-   # Otherwise, for example: If there is a PROJECT/Documentation/Localization.fr_FR/ section
-   # set value 'fr_FR':
-   # LOCALIZATION=fr_FR
-
-
-Run A Render Job
-================
-
-Wherever you are - activate the environment first::
-
-   user@srv123:~$  source ~/venvs/tct/venv/bin/activate
-   (venv)mbless@srv123:~$
-
-Check that TCT is running::
-
-   (venv)mbless@srv123:~$  tct --help
-   (venv)mbless@srv123:~$  tct run --help
-
-Let's run a job::
-
-   (venv)mbless@srv123:~$  tct run
-   Usage: tct run [OPTIONS] TOOLCHAIN
-
-   Error: Missing argument "toolchain".
-
-So the argument "toolchain" is missing. What toolchains do we have? ::
-
-   (venv)mbless@srv123:~$  tct list
-   RenderDocumentation
-
-Ok, we have a toolchain `RenderDocumentation`. So let's run it::
-
-   (venv)mbless@srv123:~$ tct run RenderDocumentation
-   # -------- RenderDocumentation 2016-09-13 20:29:18 933141
-   Usage: tct run RenderDocumentation --config makedir MAKEDIR [--toolchain-help]
-   Produced: nothing
-   2016-09-13 20:29:19 733904 duration: 0.80 seconds
-
-Ah, ok, the next hurdle. The toolchain `RenderDocumentation` is asking for a
-parameter itself. It requires a value for the parameter `makedir`. We pass that
-parameter to TCT with the commandline option `--config makedir MAKEDIR`. With
-`--config`, alternatively `-c` we can pass key value pairs to the toolchain.
-To make things easier we go to the makedir first::
-
-   (venv)mbless@srv123:~$  cd ~/TYPO3CMS-Guide-RenderTypo3Documentation.git.make
-
-Now run the process. We specify '.' (for current dir)
-for option `makedir`::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir .
-
-   # process should run - you should see messages passing by
-
-If you just run the process a second time you'll probably get a 'Produced: nothing'
-situation::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir .
-
-   # -------- RenderDocumentation 2016-09-13 20:44:07 181093
-   RenderTypo3Documentation.git.make
-   rebuild_needed: no, age: 20830 seconds
-   Produced: nothing
-   2016-09-13 20:44:10 613324 duration: 3.43 seconds
-
-The reason for this is that the documentation is unchanged. The toolchain leaves a
-checksum file in the :file:`makedir` folder. Since the checksum is the same the
-toolchain concludes that another rendering is not necessary. If the checksum is very
-old like two weeks or so it still renders the documentation to give it an "up to date look".
-You can tell the toolchain to ignore the result of the checksum check. To do that
-set `rebuild_needed` to `1`. By default the value is `0`. Use `0` or `1`, since an
-integer is expected::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1
-
-We do another run. The toolchain tries to find email addresses of the project owner
-and tries to send an email with a report in the end "to this user". So internally
-this mail is called `email_user`. You can tell the toolchain to send the mail to
-some other address, for example your address or addresses instead of to the - suspected -
-project owners::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1 \
-      -c email_user_to martin@mbless.de,martin.bless@typo3.org
-
-If you're in doubt, let the toolchain itself show help about what options it understands.
-With the option `--toolchain-help` the toolchain shows help and then terminates::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1 \
-      --toolchain-help
-
-If you think a previous run has failed to remove the lockfile
-:file:`/tmp/TCT/RenderDocumentation/lockfile.json` you can use `-T unlock`
-to remove that lockfile. Attention: Don't do this when a cronjob is running
-for example::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1 \
-      -T unlock
-
-To remove all temporary data of previous builds use `--clean-but 5`
-to keep the recent five or `--clean-but 0` to remove all::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1 \
-      --clean-but 0
-
-Add a `--dry-run`, alternatively `-n`, to not really remove but to get some information::
-
-   (venv)mbless@srv123:~$  tct run RenderDocumentation \
-      -c makedir . \
-      -c rebuild_needed 1 \
-      --clean-but 0  --dry-run
-
-
-
-.. write about:
-   (venv)user@srv123:~/HTDOCS/github.com/TYPO3-Documentation/TYPO3/Guide/RenderTypo3Documentation.git.make$ ln -s /home/user/scripts/bin/cron_rebuild-RenderDocumentation.sh cron_rebuild.sh
-   (venv)user@srv123:~/HTDOCS/github.com/TYPO3-Documentation/TYPO3/Guide/RenderTypo3Documentation.git.make$
