@@ -17,6 +17,7 @@ Heavily under construction!
    .. toctree::
 
       UseTctAtTheCommandline/Index
+      InstallTctAndToolchains/Index
 
 
 
