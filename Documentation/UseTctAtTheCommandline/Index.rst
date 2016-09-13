@@ -3,7 +3,7 @@
 .. highlight:: shell
 
 =====================================
-At the commandline
+Use TCT at the commandline
 =====================================
 
 Rendered: |today|

@@ -7,10 +7,11 @@
 Render TYPO3 Documentation Guide
 ================================
 
-.. toctree::
-   :hidden:
+Heavily under construction!
 
-   AtTheCommandline/Index
+.. toctree::
+
+   UseTctAtTheCommandline/Index
 
 
 
