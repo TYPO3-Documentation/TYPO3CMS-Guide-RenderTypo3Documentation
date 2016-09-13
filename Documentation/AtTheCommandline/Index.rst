@@ -1,15 +1,14 @@
 
-.. include:: ../Includes.txt
-
+.. include::   ../Includes.txt
+.. highlight:: shell
 
 =====================================
-At the servers commandline
+At The Commandline
 =====================================
 
 TCT is the Toolchain Tool. The actual name on the commandline is `tct`.
 
 `RenderDocumentation` is a toolchain that is run by TCT.
-
 
 
 Login to the server.
