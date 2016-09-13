@@ -255,6 +255,9 @@ The file is read as ini file too.
 Understand
 ----------
 
+How to run TCT
+==============
+
 TCT is the Toolchain Tool. The actual name on the commandline is `tct`.
 
 `RenderDocumentation` is a toolchain that is run by TCT.
@@ -268,20 +271,54 @@ Run TCT::
    bash: tct: command not found
 
 This is exactly what you should expect since TCT is installed in a 'virtualenv'.
-Source the activation file to set up the necessary environment::
+The place to keep such virtual environments (created by `virtualenv`) is
+:file:`~/venvs/`::
 
-   # ~/venvs               a place to keep virtual environments
-   # ~/venvs/tct           the virtual we are using for TCT
-   # ~/venvs/tct/venv      'venv' is the common name
-   # ~/venvs/tct/venv/bin  the usual place for executables
+   ls -la ~/venvs
+   drwxr-xr-x  3 user user 4096 Aug 12 14:41 .
+   drwxr-xr-x 15 user user 4096 Sep 13 14:37 ..
+   drwxr-xr-x  3 user user 4096 Aug 11 20:49 tct
+
+So there's only one at the moment, namely `tct`. It has been created like this::
+
+   mkdir ~/venvs/tct
+   cd ~/venvs/tct
+   virtualenv venv
+
+So we have::
+
+   # ~/venvs                        a place to keep virtual environments
+   # ~/venvs/tct                    the virtual we are using for TCT
+   # ~/venvs/tct/venv               'venv' is the common name
+   # ~/venvs/tct/venv/bin           the usual place for executables
+   # ~/venvs/tct/venv/bin/activate  the bash file to be sourced
+
+Source the activation file to set up the necessary environment::
 
    user@srv123:~$  source ~/venvs/tct/venv/bin/activate
    (venv)user@srv123:~$
 
    # Yeah!
 
-Run TCT. This time it should work and look somehow like::
+Here we can install and update independently of the system::
 
+   user@srv123:~$  source ~/venvs/tct/venv/bin/activate
+   (venv)user@srv123:~$   pip install --upgrade pip
+   (venv)user@srv123:~$   pip install --upgrade sphinx
+   (venv)user@srv123:~$   pip install --upgrade t3SphinxThemeRtd
+
+   # and so on ...
+
+Call `deactivate` to return to the normal shell::
+
+   (venv)user@srv123:~$   deactivate
+   $ # we are back to normal
+
+
+So: source the virtualenv first and then run TCT.
+And then it should work and look somehow like::
+
+   user@srv123:~$  source ~/venvs/tct/venv/bin/activate
    user@srv123:~$  tct
    Usage: tct [OPTIONS] COMMAND [ARGS]...
 
@@ -311,8 +348,13 @@ Run TCT. This time it should work and look somehow like::
      list    List available toolchains.
      run     Run a toolchain.
 
+About toolchains
+================
 
-What toolchains do we have? ::
+What toolchains do we have?
+---------------------------
+
+::
 
    (venv)user@srv123:~$ tct list
    RenderDocumentation
@@ -322,10 +364,13 @@ What toolchains do we have? ::
 
 
 
-Settings
-========
+General settings for TCT
+========================
+
 
 What are the global settings?
+
+::
 
    $ cat ~/.tctconfig | less
 
@@ -348,8 +393,8 @@ What are the global settings?
 
 
 
-Logging
-=======
+About logging
+=============
 
 Cleaning will happen automatically. The N most recent builds are kept for
 inspection. N is a configurable value. Find out what recently happened::
@@ -411,8 +456,8 @@ We are seeing 30 because that's the way it's configured:::
    echo
 
 
-Locking
-=======
+About locking
+=============
 
 Only a single instance of the toolchain `RenderDocumentation` should be running at a given time.
 The lockfile :file:`/tmp/TCT/RenderDocumentation/lockfile.json` indicates that a job is running.
