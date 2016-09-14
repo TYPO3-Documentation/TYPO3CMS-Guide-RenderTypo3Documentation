@@ -9,15 +9,16 @@ Render TYPO3 Documentation Guide
 
 Heavily under construction!
 
+Please visit the :ref:`Sitemap`.
 
-**Sitemap:**
 
-.. container:: sitemap
+.. toctree::
+   :hidden:
 
-   .. toctree::
+   Sitemap/Index
+   AtTheDocsServer/Index
 
-      UseTctAtTheCommandline/Index
-      InstallTctAndToolchains/Index
+
 
 
 
