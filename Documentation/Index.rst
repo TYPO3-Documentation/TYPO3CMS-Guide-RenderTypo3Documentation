@@ -3,11 +3,11 @@
 
 .. _Start:
 
-================================
-Render TYPO3 Documentation Guide
-================================
+=========================================
+((WIP: Render TYPO3 Documentation Guide))
+=========================================
 
-Heavily under construction!
+Heavily under construction - work in progress!
 
 Please visit the :ref:`Sitemap`.
 
