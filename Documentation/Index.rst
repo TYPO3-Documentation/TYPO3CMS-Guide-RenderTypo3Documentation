@@ -15,9 +15,7 @@ should go here.
 `Leave a note <https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation/issues>`__
 if you have something helpful.
 
-** Contents:**
-
-Please visit the :ref:`Sitemap`.
+**Contents:** Clear browser cache and visit the :ref:`Sitemap`.
 
 
 .. toctree::
