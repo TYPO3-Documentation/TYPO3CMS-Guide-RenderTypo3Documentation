@@ -9,6 +9,14 @@
 
 Heavily under construction - work in progress!
 
+*Intent:* "Everything you want to know about rendering TYPO3 documentation"
+should go here.
+
+`Leave a note <https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation/issues>`__
+if you have something helpful.
+
+** Contents:**
+
 Please visit the :ref:`Sitemap`.
 
 
@@ -16,9 +24,6 @@ Please visit the :ref:`Sitemap`.
    :hidden:
 
    Sitemap/Index
+   ProjectsOnGithub/Index
    AtTheDocsServer/Index
-
-
-
-
 
