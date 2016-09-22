@@ -33,11 +33,12 @@ Two files are required at the minimum:
 -  The master document (master_doc): :file:`https://github.com/USERNAME/PROJECT/Documentation/Index.rst`
 
 -  A settings file with metadata: :file:`https://github.com/USERNAME/PROJECT/Documentation/Settings.cfg`
+
+   Learn about settings:
    ((`normal <https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/TemplatesForCopying/ExampleFiles/Settings-minimal.cfg>`__,
    `extensive <https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/TemplatesForCopying/ExampleFiles/Settings-extensive.cfg>`__,
    `example files <https://github.com/marble/typo3-docs-typo3-org-resources/tree/master/TemplatesForCopying/ExampleFiles>`__,
    `about ini files <http://mbless.de/blog/2015/10/24/a-new-task-for-an-old-server.html#ini-files>`__))
-
 
 
 Step 2: Notify the documentation server
