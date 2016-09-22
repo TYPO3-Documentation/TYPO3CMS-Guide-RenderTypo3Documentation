@@ -79,7 +79,7 @@ That's it.
 Step 3: Add a webhook at Github
 ===============================
 
-1. Copy the following payload, 67 characters, starting wiht `https` and ending with `.php`:
+1. Copy the following payload, 67 characters, starting with `https` and ending with `.php`:
    `https://docs.typo3.org/services/handle_github_post_receive_hook.php`
 
 2. Go to the settings of your Github project:
