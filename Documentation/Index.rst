@@ -24,4 +24,5 @@ if you have something helpful.
    Sitemap/Index
    ProjectsOnGithub/Index
    AtTheDocsServer/Index
+   UnderstandTheRendering/Index
 
