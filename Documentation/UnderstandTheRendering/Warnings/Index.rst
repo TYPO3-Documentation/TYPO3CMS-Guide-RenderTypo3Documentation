@@ -23,26 +23,31 @@ Visit that page and play around with the lexer.
 Could not lex
 -------------
 
-Why do I get `path/to/file.rst:181: WARNING: Could not lex literal_block as "html".
-Highlighting skipped.` for this code?
+Why
+   do I get `path/to/file.rst:181: WARNING: Could not lex literal_block as "html".
+   Highlighting skipped.` for this code?
 
-.. figure:: 001.png
-   :class: with-border
+   .. figure:: 001.png
+      :class: with-border
 
-Because the code contains a syntax error:
 
-.. figure:: 002.png
-   :class: with-border
+Because
+   the code contains a syntax error:
 
-What the lexer at the Pygments_ page says:
+   .. figure:: 002.png
+      :class: with-border
 
-.. figure:: 003.png
-   :class: with-border
+What
+   the lexer at the Pygments_ page says:
 
-Indeed, there is an error:
+   .. figure:: 003.png
+      :class: with-border
 
-.. figure:: 004.png
-   :class: with-border
+Indeed,
+   there is an error:
+
+   .. figure:: 004.png
+      :class: with-border
 
 
 
