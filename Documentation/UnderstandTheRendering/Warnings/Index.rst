@@ -19,6 +19,7 @@ Visit that page and play around with the lexer.
 [...]
 
 
+.. rst-class:: panel panel-default
 
 Could not lex
 -------------
