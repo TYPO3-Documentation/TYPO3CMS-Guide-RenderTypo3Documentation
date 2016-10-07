@@ -12,10 +12,10 @@ About The URLs
    :file:`/typo3cms/extensions/sphinx/2.4.0/` for example
 
 *  For other manuals SOME version is actually shown, for example :file:`Manual/7.6/`,
-   :file:`Manual/8-dev/`, :file:`Manual/latest/`. This is set manually after public
-   agreement.
+   :file:`Manual/8-dev/`, :file:`Manual/latest/`. This is set up manually after public
+   agreement on the server.
 
-*  To increase clarity we are in a phase of eliminating the term "/latest/".
+*  To increase clarity we are in a phase of avoiding the ambigious term "/latest/".
 
 
 Manuals of TYPO3CMS Extensions
