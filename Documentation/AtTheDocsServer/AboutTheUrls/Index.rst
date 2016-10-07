@@ -6,6 +6,17 @@
 About The URLs
 =====================================
 
+*Summary:*
+
+*  For extensions the generic url shows the highest TER version, which is something like
+   :file:`/typo3cms/extensions/sphinx/2.4.0/` for example
+
+*  For other manuals SOME version is actually shown, for example :file:`Manual/7.6/`,
+   :file:`Manual/8-dev/`, :file:`Manual/latest/`. This is set manually after public
+   agreement.
+
+*  To increase clarity we are in a phase of eliminating the term "/latest/".
+
 
 Manuals of TYPO3CMS Extensions
 ==============================
@@ -100,7 +111,7 @@ coordination process will take place.
 *This will remove much of the current irritation:*
 Since the other day the word 'stable' isn't advertised any more.
 And we are in a process of eliminating "/latest/" in the URL. Instead
-it's possible to have "/x-dev" like "/8-dev/" now.
+it's possible to have "/x.y.z-dev/" like "/8-dev/" now.
 
 So for example you'll see this choice, which should be pretty clear:
 
