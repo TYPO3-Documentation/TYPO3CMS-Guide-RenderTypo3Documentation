@@ -11,9 +11,10 @@ About The URLs
 *  For extensions the generic url shows the highest TER version, which is something like
    :file:`/typo3cms/extensions/sphinx/2.4.0/` for example
 
-*  For other manuals SOME version is actually shown, for example :file:`/typo3cms/Manual/7.6/`,
-   :file:`/typo3cms/Manual/8-dev/`, :file:`/typo3cms/Manual/latest/`. This is set up manually after public
-   agreement on the server.
+*  For other manuals SOME version is actually shown for the generic URL like
+   :file:`/typo3cms/Manual/`, for example :file:`/typo3cms/Manual/7.6/`,
+   :file:`/typo3cms/Manual/8-dev/` or :file:`/typo3cms/Manual/latest/`.
+   This is set up manually after public agreement on the server via symlink.
 
 *  To increase clarity we are in a phase of avoiding the ambigious term "/latest/".
 
