@@ -1,0 +1,44 @@
+.. include:: ../Includes.txt
+.. highlight:: shell
+
+==================================================
+How to set up a Github Docs Project on the Server
+==================================================
+
+
+To be explained:
+
+   # mb, 2016-09-22, 2016-09-22
+
+   umask 2
+
+
+   # settings
+   builddir=/home/mbless/public_html/typo3cms/drafts/github/typo3-themes/themes/latest
+   gitdir=/home/mbless/HTDOCS/github.com/typo3-themes/themes.git
+   makedir=/home/mbless/HTDOCS/github.com/typo3-themes/themes.git.make
+   builddir_parent=/home/mbless/public_html/typo3cms/drafts/github/typo3-themes/themes/
+
+   # webfolder
+   mkdir -p $builddir
+   ln -s /home/mbless/scripts/config/_htaccess-2016-08.txt $builddir_parent/.htaccess
+   ln -s $builddir_parent  $builddir_parent/latest
+
+   # repository
+   mkdir -p $makedir
+   ln -s /home/mbless/scripts/bin/request_rebuild.php                  $makedir/request_rebuild.php
+   ln -s /home/mbless/scripts/bin/conf-2015-10.py                      $makedir/conf.py
+   ln -s /home/mbless/scripts/bin/cron_rebuild-RenderDocumentation.sh  $makedir/cron_rebuild.sh
+   touch  $makedir/buildsettings.sh
+   # vim $makedir/buildsettings.sh
+
+
+   # enable Github hook
+   vim /home/mbless/public_html/services/known-github-manuals.txt
+
+   # include into cronjob
+   vim /home/mbless/HTDOCS/git.typo3.org/Documentation/cron_rebuild_included.sh
+
+
+
+

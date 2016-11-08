@@ -19,6 +19,19 @@ About The URLs
 *  To increase clarity we are in a phase of avoiding the ambigious term "/latest/".
 
 
+Test
+====
+
+
+:php:`<?php $result = 2 * 3; return $result; ?>`
+
+
+.. default-role:: emphasis
+
+```:arole:`_underscore and \ and 2 * 3 = 6```
+
+
+
 Manuals of TYPO3CMS Extensions
 ==============================
 

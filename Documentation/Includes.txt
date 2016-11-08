@@ -5,10 +5,14 @@
 .. role:: html(code)
 .. role:: js(code)
 .. role:: php(code)
+   :language: php
+   :class: highlight
 .. role:: typoscript(code)
+   :language: typoscript
 
 .. role:: ts(typoscript)
    :class: typoscript
+   :language: typoscript
 
 .. default-role:: code
 .. highlight:: php
