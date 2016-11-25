@@ -17,37 +17,8 @@ Pygments_ is the machinery responsible for syntax highlighting.
 Visit that page and play around with the lexer.
 
 
-.. sidebar:: Literal-block with default highlight language
-
-   Note that the '::' notation to start a `literal-block
-   <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#literal-blocks>`__
-   is kind of "intelligent". It is the least disturbing markup for a code-block.
-   But you have to setup the proper highlighting by a directive before, like
-
-   | `.. highlight:: none`
-   | `.. highlight:: guess`
-   | `.. highlight:: php`
-
-   You can use `.. highlight:: ...` as often as you want. It's in effect until the end of
-   the document it appears in.
-
-   If you write `release::` the result will be `release:`
-
-   If you write `release? ::` (not the whitespace) you'll get `release?`
-
-   if you write::
-
-      release?
-
-      ::
-
-         the literal code
-
-   the result will be `release?` as well without any extra lines.
-
-
 Example: How to include a Git log
----------------------------------
+=================================
 
 ::
 
@@ -77,7 +48,36 @@ Example: How to include a Git log
 
 
 How to show code examples
--------------------------
+=========================
+
+.. sidebar:: Literal-block with default highlight language
+
+   Note that the '::' notation to start a `literal-block
+   <http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html#literal-blocks>`__
+   is kind of "intelligent". It is the least disturbing markup for a code-block.
+   But you have to setup the proper highlighting by a directive before, like
+
+   | `.. highlight:: none`
+   | `.. highlight:: guess`
+   | `.. highlight:: php`
+
+   You can use `.. highlight:: ...` as often as you want. It's in effect until the end of
+   the document it appears in.
+
+   If you write `release::` the result will be `release:`
+
+   If you write `release? ::` (not the whitespace) you'll get `release?`
+
+   if you write::
+
+      release?
+
+      ::
+
+         the literal code
+
+   the result will be `release?` as well without any extra lines.
+
 
 See  http://www.sphinx-doc.org/en/1.4.8/markup/code.html#showing-code-examples
 
@@ -92,12 +92,12 @@ throw a parsing error.
 
 
 Pygments Demo Site
-------------------
+==================
 Learn interactively about Pygments_ and the available lexers and languages at the
 `Pygments Demo Page <http://pygments.org/demo/>`__
 
 Find available lexers
----------------------
+=====================
 
 .. highlight:: shell
 
