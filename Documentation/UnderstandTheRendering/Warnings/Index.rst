@@ -9,8 +9,8 @@ Warnings
 
 
 
-Highlighting
-============
+Warnings about highlighting
+===========================
 
 .. _Pygments: http://pygments.org/
 

@@ -17,5 +17,3 @@ State: very early
 
 Just starting on Sep 13, 2016
 
-
-
