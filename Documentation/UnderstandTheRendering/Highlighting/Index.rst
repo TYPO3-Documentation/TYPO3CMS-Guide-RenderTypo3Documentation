@@ -28,10 +28,10 @@ Visit that page and play around with the lexer.
    | `.. highlight:: guess`
    | `.. highlight:: php`
 
-   You can use `.. highlight:: ...`as often as you want. It's in effect until the end of
+   You can use `.. highlight:: ...` as often as you want. It's in effect until the end of
    the document it appears in.
 
-   If you write `release::` the result will be `release:`.
+   If you write `release::` the result will be `release:`
 
    If you write `release? ::` (not the whitespace) you'll get `release?`
 
@@ -43,7 +43,7 @@ Visit that page and play around with the lexer.
 
          the literal code
 
-   you'll get `release?` - without any extra lines. So case two and three have the same result.
+   the result will be `release?` as well without any extra lines.
 
 
 Example: How to include a Git log
