@@ -3,9 +3,9 @@
 
 .. _Start:
 
-=========================================
-((WIP: Render TYPO3 Documentation Guide))
-=========================================
+======================================
+(WIP) Render TYPO3 Documentation Guide
+======================================
 
 Heavily under construction - work in progress!
 
@@ -17,12 +17,12 @@ if you have something helpful.
 
 **Contents:** Clear browser cache and visit the :ref:`Sitemap`.
 
-
 .. toctree::
    :hidden:
 
    Sitemap/Index
    ProjectsOnGithub/Index
    AtTheDocsServer/Index
+   LocalRendering/Index
    UnderstandTheRendering/Index
 
