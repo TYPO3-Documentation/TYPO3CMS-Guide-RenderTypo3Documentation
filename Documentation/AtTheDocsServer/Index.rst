@@ -3,19 +3,22 @@
 .. highlight:: shell
 
 =====================================
-At The Docs Server
+API
 =====================================
 
 
 
-.. toctree::
-   :hidden:
+Use Swagger as a design tool:
 
-   TheMakedirOfAProject/Index
-   SetupGithubProject/Index.rst
-   UseTctAtTheCommandline/Index
-   InstallTctAndToolchains/Index
-   AboutTct/Index
-   AboutRenderDocumentation/Index
-   AboutTheUrls/Index
+-  read http://swagger.io/docs/
+-  run locally on port 8880::
+
+      docker pull swaggerapi/swagger-editor
+      docker run -p 8880:8080 swaggerapi/swagger-editor
+
+-  open localhost:8880 in browser
+-  use the editor
+-  export the yaml file
+-  import the yaml file for further editing
+
 
