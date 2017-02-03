@@ -21,12 +21,22 @@ Provide basics
 #. `mkdir venvs` - create folder for virtual environments
 #. `mkdir venvs/tct` - create folder for ToolChainTool
 
-Install with PIP
+Setup virtual environment
 
 #. `cd ~/venvs/tct` - go to project folder
-#. `pip install --upgrade git+https://github.com/aaronsw/html2text.git` -
+#. `virtualenv venv` - setup a local Python environment
+#. `source venv/bin/activate` - activate
+#. `deactivate`- reset shell to normal environment
+
+Install with PIP
+
+#. `cd ~` - go somewhere - it doesn't matter
+#. `source ~/venvs/tct/venv/bin/activate` - activate the environment
+#. `(venv) pip install --upgrade git+https://github.com/aaronsw/html2text.git` -
    install Python package directly from Git repository
-#. ...
+#. `UNTESTED not ready yet`
+   `(venv) pip install --upgrade git+https://github.com/marble/TCT.git` 
+
 
 Test
 
