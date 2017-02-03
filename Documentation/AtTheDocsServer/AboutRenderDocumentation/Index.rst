@@ -4,9 +4,9 @@
 
 .. _About-RenderDocumentation:
 
-=====================================
-About RenderDocumentation
-=====================================
+===================================
+RenderDocumentation - The Toolchain
+===================================
 
 
 :Repository: https://github.com/marble/Toolchain_RenderDocumentation
