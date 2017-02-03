@@ -22,8 +22,8 @@ if you have something helpful.
 
    Sitemap/Index
    Introduction/Index
-   ProjectsOnGithub/Index
    AtTheDocsServer/Index
    LocalRendering/Index
    UnderstandTheRendering/Index
+   ProjectsOnGithub/Index
 
