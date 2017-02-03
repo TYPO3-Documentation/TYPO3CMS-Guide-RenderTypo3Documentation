@@ -21,6 +21,7 @@ if you have something helpful.
    :hidden:
 
    Sitemap/Index
+   Introduction/Index
    ProjectsOnGithub/Index
    AtTheDocsServer/Index
    LocalRendering/Index
