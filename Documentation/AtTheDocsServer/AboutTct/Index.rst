@@ -4,9 +4,9 @@
 
 .. _About-TCT:
 
-========================
-TCT - The Toolchain Tool
-========================
+==============================
+About TCT - The Toolchain Tool
+==============================
 
 ------------------------
 A tool to run toolchains

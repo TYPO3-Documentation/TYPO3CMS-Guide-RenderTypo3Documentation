@@ -19,4 +19,5 @@ Topics:
    AboutRenderDocumentation/Index
    AboutTheUrls/Index
    Api/Index
+   Administration/Index
 
