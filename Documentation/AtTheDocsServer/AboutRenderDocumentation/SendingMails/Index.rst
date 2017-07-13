@@ -24,13 +24,15 @@ Templating
 
 #. Common commands::
 
-       cd ~/Repositories
-       git clone https://github.com/TYPO3-Documentation/t3SphinxThemeRtdEmail TYPO3-Documentation/t3SphinxThemeRtdEmail
-       cd ~/Repositories/TYPO3-Documentation/t3SphinxThemeRtdEmail
-       foundation watch
-       cp example.config.json config.json
-       gedit config.json
-       npm run mail
+      cd ~
+      mkdir -p ~/Repositories/github.com
+      cd ~/Repositories/github.com
+      git clone https://github.com/TYPO3-Documentation/t3SphinxThemeRtdEmail TYPO3-Documentation/t3SphinxThemeRtdEmail
+      cd ~/Repositories/github.com/TYPO3-Documentation/t3SphinxThemeRtdEmail
+      foundation watch
+      cp example.config.json config.json
+      gedit config.json
+      npm run mail
 
 #. Sources are in :file:`src/`, the result is in :file:`dist/`.
 
