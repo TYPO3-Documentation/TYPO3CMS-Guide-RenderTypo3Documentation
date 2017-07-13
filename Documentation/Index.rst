@@ -15,7 +15,8 @@ should go here.
 `Leave a note <https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation/issues>`__
 if you have something helpful.
 
-:Rendered:  |today|
+Rendered:
+   |today|
 
 Contents:
    Clear browser cache and visit the :ref:`Sitemap`.

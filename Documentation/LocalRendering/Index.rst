@@ -13,5 +13,5 @@ Local Rendering
    :hidden:
 
    UsingDocker/Index
-   UsingLocal/Toolchain
+   UsingALocalToolchain/Index
 

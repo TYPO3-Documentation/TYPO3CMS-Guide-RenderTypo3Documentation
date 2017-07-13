@@ -2,9 +2,9 @@
 .. include::   ../../Includes.txt
 .. highlight:: shell
 
-=====================================
-Using Local Toolchain
-=====================================
+=======================
+Using a Local Toolchain
+=======================
 
 ((to be written))
 
