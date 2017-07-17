@@ -12,6 +12,5 @@ Local Rendering
 .. toctree::
    :hidden:
 
-   UsingDocker/Index
    UsingALocalToolchain/Index
 

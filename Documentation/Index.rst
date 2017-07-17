@@ -31,4 +31,5 @@ Contents:
    LocalRendering/Index
    UnderstandTheRendering/Index
    ProjectsOnGithub/Index
+   UsingDocker/Index
 
