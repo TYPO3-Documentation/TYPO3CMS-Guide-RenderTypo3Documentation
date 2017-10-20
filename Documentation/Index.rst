@@ -32,5 +32,4 @@ Contents:
    UnderstandTheRendering/Index
    ProjectsOnGithub/Index
    UsingDocker/Index
-   AboutVPN/Index
 
