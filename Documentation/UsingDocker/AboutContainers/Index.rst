@@ -14,7 +14,7 @@ Container `t3docs/render-documentation`
 How-to:
    ((to be written))
 
-   See this README for now:
+   See this README:
    https://github.com/t3docs/docker-render-documentation
 
 
@@ -72,7 +72,7 @@ We now have three layers:
 
       docker pull t3docs/render-documentation
 
-   Why?
+   Why does this work?
 
    Docker is 'clever'. It adds the layers at runtime and only downloads what
    has changed.
