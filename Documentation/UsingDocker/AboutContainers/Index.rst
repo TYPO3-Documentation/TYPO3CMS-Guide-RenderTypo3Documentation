@@ -11,10 +11,16 @@ About containers
 Container `t3docs/render-documentation`
 =======================================
 
-Locations:
+How-to:
+   ((to be written))
 
-:Github:     https://github.com/t3docs/docker-render-documentation (1)
-:Docker hub: https://hub.docker.com/r/t3docs/render-documentation/ (2)
+   See this README for now:
+   https://github.com/t3docs/docker-render-documentation
+
+
+Locations:
+   :Github:     https://github.com/t3docs/docker-render-documentation (1)
+   :Docker hub: https://hub.docker.com/r/t3docs/render-documentation/ (2)
 
 (1) is the recipe for building the Docker image. We maintain just one version
 of that container that is capable of doing all the tasks. The downside is that
