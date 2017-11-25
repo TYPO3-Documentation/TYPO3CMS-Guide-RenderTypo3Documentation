@@ -27,7 +27,7 @@ What is it?
 TCT is a tool. It runs toolchains. It is a toolchain runner.
 It has to be installed on the server and other machines that are supposed to execute toolchains.
 
-:ref:`RenderDocumentation <About-RenderDocumentation<` for example is such a toolchain. It knows
+:ref:`RenderDocumentation <About-RenderDocumentation>` for example is such a toolchain. It knows
 how to build documentation on the server. It can be configured to run on other servers or local
 machines as well.
 

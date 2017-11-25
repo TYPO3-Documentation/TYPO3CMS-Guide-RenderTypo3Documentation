@@ -1,5 +1,5 @@
 
-.. include::   ../Includes.txt
+.. include::   ../../Includes.txt
 .. highlight:: shell
 
 ======================================
@@ -140,9 +140,3 @@ Explanations
 All temporary files are placed at :file:`/tmp/TCT/RenderDocumentation/...`.
 
 The last N projects (20 or so) are kept there for inspection.
-
-
-
-
-
-

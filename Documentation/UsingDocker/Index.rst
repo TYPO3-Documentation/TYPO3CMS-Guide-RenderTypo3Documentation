@@ -2,9 +2,11 @@
 .. include::   ../Includes.txt
 .. highlight:: shell
 
-============
-Using Docker
-============
+.. _How-to-use-Docker-for-rendering:
+
+===============================
+How to use Docker for rendering
+===============================
 
 ((to be written))
 
