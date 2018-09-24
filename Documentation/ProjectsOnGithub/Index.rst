@@ -85,12 +85,15 @@ Step 3: Add a webhook at Github
 2. Go to the settings of your Github project:
 
    .. figure:: 001.png
-      :class: with-border
+      :class: with-shadow
+      
 
 3. Choose "Webhooks":
 
    .. figure:: 002.png
+      :class: with-shadow
 
 4. Add the webhook like this:
 
    .. figure:: 003.png
+      :class: with-shadow
