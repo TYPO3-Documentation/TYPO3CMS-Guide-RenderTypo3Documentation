@@ -6,7 +6,7 @@
 About the Homepage
 =====================================
 
-by Martin Bless, 2017-02-12
+by Martin Bless, 2017-02-12, updated 2018-11-06
 
 A repository for the "glue pages"
 =================================
@@ -58,6 +58,13 @@ The procedure of publishing new homepage content is:
 #. Script two simply copies the `0.0` version to the homepage location.
 
 Running `./1sh` and `./2.sh` can be done at any time and happens very fast.
+
+*Tip, convenience calls:* ::
+
+   # from a remote machine:
+   ssh mbless@srv123.typo3.org HTDOCS/github.com/TYPO3-Documentation/DocsTypo3Org-Homepage.git.make/1.sh
+   ssh mbless@srv123.typo3.org HTDOCS/github.com/TYPO3-Documentation/DocsTypo3Org-Homepage.git.make/2.sh
+
 
 .. attention::
 
