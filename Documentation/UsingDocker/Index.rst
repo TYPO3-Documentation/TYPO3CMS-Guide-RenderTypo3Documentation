@@ -8,11 +8,10 @@
 How To Use Docker For Rendering
 ===============================
 
-((to be written))
-
 See this README for the moment:
 https://github.com/t3docs/docker-render-documentation
 
 .. toctree::
-
+   :hidden:
+   
    AboutContainers/Index

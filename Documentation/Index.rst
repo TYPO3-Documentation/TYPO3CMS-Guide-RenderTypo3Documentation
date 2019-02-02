@@ -7,29 +7,32 @@
 (WIP) Render TYPO3 Documentation Guide
 ======================================
 
-Heavily under construction - work in progress!
 
-*Intent:* "Everything you want to know about rendering TYPO3 documentation"
-should go here.
+.. rst-class:: horizbuttons-primary-m
 
-`Leave a note <https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation/issues>`__
-if you have something helpful.
+- `Render Documentation with Docker
+  <https://github.com/t3docs/docker-render-documentation/blob/master/README.rst>`__
 
-Rendered:
-   |today|
+This guide is heavily under construction - work in progress!
 
-Contents:
-   Clear browser cache and visit the :ref:`Sitemap`.
+To find out about **rendering TYPO3 documentation locally with Docker**,
+go to: `GitHub: t3docs/docker-render-documentation
+<https://github.com/t3docs/docker-render-documentation/blob/master/README.rst>`__
+
+*Intent of this guide:* "Everything you want to know about rendering TYPO3 documentation"
 
 
 .. toctree::
    :hidden:
 
    Sitemap/Index
-   Introduction/Index
    AtTheDocsServer/Index
-   LocalRendering/Index
    UnderstandTheRendering/Index
    ProjectsOnGithub/Index
-   UsingDocker/Index
+   How To Use Docker For Rendering  ➜  <https://github.com/t3docs/docker-render-documentation>
 
+.. currently deactivated
+
+.. Introduction/Index
+.. LocalRendering/Index
+.. UsingDocker/Index
