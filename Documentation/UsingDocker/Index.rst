@@ -8,10 +8,9 @@
 How To Use Docker For Rendering
 ===============================
 
-See this README for the moment:
-https://github.com/t3docs/docker-render-documentation
+See `Readme on GitHub <https://github.com/t3docs/docker-render-documentation#quickstart-on-linux-or-macos>`__
 
 .. toctree::
    :hidden:
-   
+
    AboutContainers/Index

@@ -6,8 +6,7 @@
 Local Rendering
 ===============
 
-((Introduction. To be written.))
-
+See `Readme on GitHub <https://github.com/t3docs/docker-render-documentation#quickstart-on-linux-or-macos>`__
 
 .. toctree::
    :hidden:
