@@ -12,6 +12,7 @@ Topics:
 .. toctree::
 
    TheMakedirOfAProject/Index
+   FilesInTheBuildFolder
    SetupGithubProject/Index.rst
    UseTctAtTheCommandline/Index
    InstallTctAndToolchains/Index
