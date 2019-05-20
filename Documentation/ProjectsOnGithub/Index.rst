@@ -34,6 +34,8 @@ Two files are required at the minimum:
 
 -  A settings file with metadata: :file:`https://github.com/USERNAME/PROJECT/Documentation/Settings.cfg`
 
+- A composer.json file that requires `typo3/csm-core`.
+
    Learn about settings:
    ((`normal <https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/TemplatesForCopying/ExampleFiles/Settings-minimal.cfg>`__,
    `extensive <https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/TemplatesForCopying/ExampleFiles/Settings-extensive.cfg>`__,
@@ -44,56 +46,7 @@ Two files are required at the minimum:
 Step 2: Notify the documentation server
 =======================================
 
-At the moment it's more the documentation TEAM you have to notify. Send an email to documentation@typo3.org
-providing this information:
-
-1. The **url** of your Github repository
-2. The **branch** that should be used
-3. The **desired folder name** or your publication
-
-Add any information you want, for example what complete url you'd like to see.
-
-Example 1::
-
-   Please publish: https://github.com/TYPO3-Documentation/TYPO3CMS-Guide-RenderTypo3Documentation
-   branch:         master
-   as:             RenderTYPO3DocumentationGuide
-   preferably at:  https://docs.typo3.org/typo3cms/RenderTYPO3DocumentationGuide/
-
-Example 2::
-
-   Please publish: https://github.com/georgringer/news
-   branch:         master
-   as:             news
-   preferably at:  https://docs.typo3.org/typo3cms/extensions/news/
-
-.. What does "Is it a TER extension?" mean? The documentation of a TER extension
-   is automatically rendered and published with a url that ends with the version number
-   like :file:`typo3cms/extensions/EXTKEY/1.2.3/`. It is the contents of the
-   documentation with the highest version number that you see when you visit the
-   url without the version number like in :file:`typo3cms/extensions/EXTKEY/`.
+To trigger documentation rendering you should add `https://docs-hook.typo3.org/` as a webhook to your
+public repository. Make sure to set the content type to `application-json`.
 
 That's it.
-
-
-Step 3: Add a webhook at Github
-===============================
-
-1. Copy the following payload, 67 characters, starting with `https` and ending with `.php`:
-   `https://docs.typo3.org/services/handle_github_post_receive_hook.php`
-
-2. Go to the settings of your Github project:
-
-   .. figure:: 001.png
-      :class: with-shadow
-      
-
-3. Choose "Webhooks":
-
-   .. figure:: 002.png
-      :class: with-shadow
-
-4. Add the webhook like this:
-
-   .. figure:: 003.png
-      :class: with-shadow
