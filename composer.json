@@ -1,0 +1,9 @@
+{
+    "name": "typo3/docs-guide-render-typo3-documentation",
+    "type": "typo3-cms-documentation",
+    "description": "Render TYPO3 Documentation Guide",
+    "license": "OPL-1.0",
+    "require": {
+      "typo3/cms-core": "^9.5"
+    }
+}
