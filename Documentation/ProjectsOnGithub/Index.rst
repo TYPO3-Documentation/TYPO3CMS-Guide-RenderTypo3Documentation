@@ -50,3 +50,24 @@ To trigger documentation rendering you should add `https://docs-hook.typo3.org/`
 public repository. Make sure to set the content type to `application-json`.
 
 That's it.
+
+Step 3: Add a webhook at Github
+===============================
+
+1. Copy the webhook: `https://docs-hook.typo3.org/`
+
+2. Go to the settings of your Github project:
+
+   .. figure:: 001.png
+      :class: with-shadow
+
+
+3. Choose "Webhooks":
+
+   .. figure:: 002.png
+      :class: with-shadow
+
+4. Add the webhook like this:
+
+   .. figure:: 003.png
+      :class: with-shadow
