@@ -34,7 +34,7 @@ Two files are required at the minimum:
 
 -  A settings file with metadata: :file:`https://github.com/USERNAME/PROJECT/Documentation/Settings.cfg`
 
-- A composer.json file that requires `typo3/csm-core`.
+- A composer.json file that requires `typo3/cms-core`.
 
    Learn about settings:
    ((`normal <https://github.com/marble/typo3-docs-typo3-org-resources/blob/master/TemplatesForCopying/ExampleFiles/Settings-minimal.cfg>`__,
