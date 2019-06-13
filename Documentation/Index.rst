@@ -28,7 +28,7 @@ go to: `GitHub: t3docs/docker-render-documentation
    Sitemap/Index
    AtTheDocsServer/Index
    UnderstandTheRendering/Index
-   ProjectsOnGithub/Index
+   ProjectsOnGithub/Index ➜  <https://docs.typo3.org/m/typo3/docs-how-to-document/master/en-us/WritingDocForExtension/Migrate.html>
    How To Use Docker For Rendering  ➜  <https://github.com/t3docs/docker-render-documentation>
 
 .. currently deactivated
