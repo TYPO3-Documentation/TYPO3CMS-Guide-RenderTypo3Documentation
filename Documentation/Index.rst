@@ -8,16 +8,11 @@
 ======================================
 
 
-.. rst-class:: horizbuttons-primary-m
+.. important::
 
-- `Render Documentation with Docker
-  <https://github.com/t3docs/docker-render-documentation/blob/master/README.rst>`__
+   This guide has been archived on GitHub. Redirects are in place on the documentation
+   server.
 
-This guide is heavily under construction - work in progress!
-
-To find out about **rendering TYPO3 documentation locally with Docker**,
-go to: `GitHub: t3docs/docker-render-documentation
-<https://github.com/t3docs/docker-render-documentation/blob/master/README.rst>`__
 
 *Intent of this guide:* "Everything you want to know about rendering TYPO3 documentation"
 
